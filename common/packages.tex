@@ -12,15 +12,12 @@
 
 \newif\ifsynopsis           % Условие, проверяющее, что документ --- автореферат
 
-\usepackage{etoolbox}[2015/08/02]   % Для продвинутой проверки разных условий
+\usepackage{etoolbox}[2015/08/02]               % Для продвинутой проверки разных условий
 \providebool{presentation}
 
-\usepackage{comment}    % Позволяет убирать блоки текста (добавляет
-                        % окружение comment и команду \excludecomment)
-
 %%% Поля и разметка страницы %%%
-\usepackage{pdflscape}  % Для включения альбомных страниц
-\usepackage{geometry}   % Для последующего задания полей
+\usepackage{pdflscape}                              % Для включения альбомных страниц
+\usepackage{geometry}                               % Для последующего задания полей
 
 %%% Математические пакеты %%%
 \usepackage{amsthm,amsmath,amscd}   % Математические дополнения от AMS
@@ -53,16 +50,14 @@
 \setlength{\bigtextsize}{13.9pt}
 
 \makeatletter
-%\show\f@size    % неплохо для отслеживания, но вызывает стопорение процесса,
-                 % если документ компилируется без команды  -interaction=nonstopmode
+%\show\f@size                                       % неплохо для отслеживания, но вызывает стопорение процесса, если документ компилируется без команды  -interaction=nonstopmode
 \setlength{\curtextsize}{\f@size pt}
 \makeatother
 
 %%% Кодировки и шрифты %%%
 \ifxetexorluatex
-    \PassOptionsToPackage{no-math}{fontspec}    % https://tex.stackexchange.com/a/26295/104425
-    \usepackage{polyglossia}[2014/05/21]        % Поддержка многоязычности
-                                        % (fontspec подгружается автоматически)
+    \PassOptionsToPackage{no-math}{fontspec}        % https://tex.stackexchange.com/a/26295/104425
+    \usepackage{polyglossia}[2014/05/21]            % Поддержка многоязычности (fontspec подгружается автоматически)
 \else
    %%% Решение проблемы копирования текста в буфер кракозябрами
     \ifnumequal{\value{usealtfont}}{0}{}{
@@ -70,11 +65,9 @@
         \input glyphtounicode-cmr.tex %from pdfx package
         \pdfgentounicode=1
     }
-    \usepackage{cmap}   % Улучшенный поиск русских слов в полученном pdf-файле
+    \usepackage{cmap}                               % Улучшенный поиск русских слов в полученном pdf-файле
     \ifnumequal{\value{usealtfont}}{2}{}{
-        \defaulthyphenchar=127  % Если стоит до fontenc, то переносы
-                                % не впишутся в выделяемый текст при
-                                % копировании его в буфер обмена
+        \defaulthyphenchar=127                      % Если стоит до fontenc, то переносы не впишутся в выделяемый текст при копировании его в буфер обмена
     }
     \usepackage{textcomp}
     \usepackage[T1,T2A]{fontenc}                    % Поддержка русских букв
@@ -83,7 +76,6 @@
     }{}
     \usepackage[utf8]{inputenc}[2014/04/30]         % Кодировка utf8
     \usepackage[english, russian]{babel}[2014/03/24]% Языки: русский, английский
-    \makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother % babel 3.40 fix
     \ifnumequal{\value{usealtfont}}{2}{
         % http://dxdy.ru/post1238763.html#p1238763
         \usepackage[scaled=0.960]{XCharter}[2017/12/19] % Подключение русифицированных шрифтов XCharter
@@ -96,10 +88,7 @@
 \fi
 
 %%% Оформление абзацев %%%
-\ifpresentation
-\else
-    \indentafterchapter     % Красная строка после заголовков типа chapter
-\fi
+\usepackage{indentfirst}                            % Красная строка
 
 %%% Цвета %%%
 \ifpresentation
@@ -113,11 +102,10 @@
 \usepackage{tabu, tabulary}      % таблицы с автоматически подбирающейся
                                  % шириной столбцов (tabu обязательно
                                  % до hyperref вызывать)
-\usepackage{threeparttable}      % автоматический подгон ширины подписи таблицы
 
 %%% Общее форматирование
-\usepackage{soulutf8}% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
-\usepackage{icomma}  % Запятая в десятичных дробях
+\usepackage{soulutf8}                               % Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+\usepackage{icomma}                                 % Запятая в десятичных дробях
 
 %%% Оптимизация расстановки переносов и длины последней строки абзаца
 \IfFileExists{impnattypo.sty}{% проверка установленности пакета impnattypo
@@ -145,19 +133,12 @@
 \usepackage{hyperref}[2012/11/06]
 
 %%% Изображения %%%
-\usepackage{graphicx}[2014/04/25]   % Подключаем пакет работы с графикой
-\usepackage{caption}                % Подписи рисунков и таблиц
-\usepackage{subcaption}             % Подписи подрисунков и подтаблиц
-\usepackage{pdfpages}               % Добавление внешних pdf файлов
+\usepackage{graphicx}[2014/04/25]                   % Подключаем пакет работы с графикой
 
 %%% Счётчики %%%
-\usepackage[figure,table]{totalcount}   % Счётчик рисунков и таблиц
-\usepackage{totcount}   % Пакет создания счётчиков на основе последнего номера
-                        % подсчитываемого элемента (может требовать дважды
-                        % компилировать документ)
-\usepackage{totpages}   % Счётчик страниц, совместимый с hyperref (ссылается
-                        % на номер последней страницы). Желательно ставить
-                        % последним пакетом в преамбуле
+\usepackage[figure,table]{totalcount}               % Счётчик рисунков и таблиц
+\usepackage{totcount}                               % Пакет создания счётчиков на основе последнего номера подсчитываемого элемента (может требовать дважды компилировать документ)
+\usepackage{totpages}                               % Счётчик страниц, совместимый с hyperref (ссылается на номер последней страницы). Желательно ставить последним пакетом в преамбуле
 
 %%% Продвинутое управление групповыми ссылками (пока только формулами) %%%
 \ifpresentation
@@ -194,8 +175,6 @@
     \newcommand{\refs}[1]{\labelcref{#1}}
 \fi
 
-\usepackage{placeins} % для \FloatBarrier
-
 \ifnumequal{\value{draft}}{1}{% Черновик
     \usepackage[firstpage]{draftwatermark}
     \SetWatermarkText{DRAFT}
@@ -203,6 +182,50 @@
     \SetWatermarkScale{15}
     \SetWatermarkAngle{45}
 }{}
+
+%%% Исправление положения якорей подписей (под)рисунков %%%
+% Без hypcap и патча, при клике по ссылке на подрисунок, просмотрщик pdf прыгает "к подписи" а не "к рисунку".
+% Подробнее: https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template/issues/238
+% (!) Даже с патчем, если мешать в одной фиге разные типы подфиг (subbottom и subcaption) - ссылки всё равно будут работать неправильно  (см. https://www.overleaf.com/read/czmbmmtnqrrg ).
+\ifpresentation
+\else
+    \usepackage[all]{hypcap}
+
+    \makeatletter
+    \ltx@ifclasslater{memoir}{2018/12/13}{
+        % Предполагается, что в следующей версии класс будет исправлен
+        \typeout{Assuming this version of memoir is free from the jumping-to-caption bug.}
+    }{
+        \usepackage{xpatch}
+
+        \newcommand\mem@step@subcounter{\refstepcounter{sub\@captype}\@contkeep}
+
+        \xpatchcmd{\@memsubbody}%
+        {\refstepcounter{sub\@captype}\@contkeep}% search pattern
+        {}% replacement
+        {\typeout{@memsubbody is patched}}%
+        {\typeout{@memsubbody is NOT patched}}%
+
+        \xpatchcmd{\@memcontsubbody}%
+        {\refstepcounter{sub\@captype}\@contkeep}% pattern
+        {}% replacement
+        {\typeout{@memcontsubbody is patched}}%
+        {\typeout{@memcontsubbody is NOT patched}}%
+
+        \xpatchcmd{\@memsubfloat}%
+        {\vbox\bgroup}% search pattern
+        {\vbox\bgroup\mem@step@subcounter}% replacement
+        {\typeout{@memsubfloat patch is ok}}%
+        {\typeout{@memsubfloat patch is NOT ok}}%
+
+        \xpatchcmd{\subcaption}%
+        {\refstepcounter{sub\@captype}}% search pattern
+        {\H@refstepcounter{sub\@captype}}% replacement
+        {\typeout{subcaption second patch is ok}}%
+        {\typeout{subcaption second patch is NOT ok}}%
+    }
+    \makeatother
+\fi
 
 %%% Цитата, не приводимая в автореферате:
 % возможно, актуальна только для biblatex
@@ -215,8 +238,9 @@
 
 \ifnumequal{\value{imgprecompile}}{1}{% Только если у нас включена предкомпиляция
     \usetikzlibrary{external}   % подключение возможности предкомпиляции
-    \tikzexternalize[prefix=images/cache/,optimize command away=\includepdf] % activate! % здесь можно указать отдельную папку для скомпилированных файлов
+    \tikzexternalize[prefix=images/cache/] % activate! % здесь можно указать отдельную папку для скомпилированных файлов
     \ifxetex
         \tikzset{external/up to date check={diff}}
     \fi
 }{}
+\usepackage{euscript}

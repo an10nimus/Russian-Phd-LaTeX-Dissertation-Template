@@ -276,3 +276,7 @@ TSWLatexianTemp*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#someshit (?)
+.vs
+*.synctex*.gz

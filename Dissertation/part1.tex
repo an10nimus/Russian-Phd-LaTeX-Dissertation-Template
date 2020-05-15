@@ -1,534 +1,253 @@
-\chapter{Оформление различных элементов}\label{ch:ch1}
+\chapter{Свободная энергия искажения ориентационной структуры}\label{ch:ch1}
 
-\section{Форматирование текста}\label{sec:ch1/sec1}
+В данной работе изучается изменение ориентационной структуры ХЖК, находящегося между двумя плоскопараллельными пластинами, расположенными на расстоянии  $L$ друг от друга. Ограничивающие пластины считаются проводящими, и к ним подведено постоянное напряжение $U$, таким образом, система имеет вид плоского конденсатора. При изменении напряжения $U$ может меняться ориентация директора в ячейке. Изучению таких трансформаций структуры будет уделено основное внимание.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=10cm]{decart}
+	\caption{Декартова система координат для ячейки ХЖК с планарной геликоидальной структурой.}
+	\label{pic:decart}
+\end{figure}
 
-Мы можем сделать \textbf{жирный текст} и \textit{курсив}.
+Введём декартову систему координат с осью $z$, направленной перпендикулярно пластинам (Рис.~\ref{pic:decart}).
+Предположим, что размер ограничивающих пластин значительно превосходит расстояния $L$ между ними, таким образом, можно пренебречь краевыми эффектами.
+Также предположим, что все физические характеристики рассматриваемой системы однородны в плоскости $XY$ и зависят только от координаты $z$: $\textbf{n}(\textbf{r}) = \textbf{n} (z)$, $\textbf{E} = \textbf{E}(z)$, где $\bb{E}$ - напряжённость электрического поля.
 
-\section{Ссылки}\label{sec:ch1/sec2}
-
-Сошлёмся на библиографию.
-Одна ссылка: \cite[с.~54]{Sokolov}\cite[с.~36]{Gaidaenko}.
-Две ссылки: \cite{Sokolov,Gaidaenko}.
-Ссылка на собственные работы: \cite{vakbib1, confbib2}.
-Много ссылок: %\cite[с.~54]{Lermontov,Management,Borozda} % такой «фокус»
-%вызывает biblatex warning относительно опции sortcites, потому что неясно, к
-%какому источнику относится уточнение о страницах, а bibtex об этой проблеме
-%даже не предупреждает
-\cite{Lermontov, Management, Borozda, Marketing, Constitution, FamilyCode,
-Gost.7.0.53, Razumovski, Lagkueva, Pokrovski, Methodology, Nasirova, Berestova,
-Kriger}%
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-    \cite{Sirotko, Lukina, Encyclopedia}%
-}{% Примеры для biblatex через движок biber
-    \cite{Sirotko2, Lukina2, Encyclopedia2}%
-}%
-.
-И~ещё немного ссылок:~\cite{Article,Book,Booklet,Conference,Inbook,Incollection,Manual,Mastersthesis,
-Misc,Phdthesis,Proceedings,Techreport,Unpublished}
-% Следует обратить внимание, что пробел после запятой внутри \cite{}
-% обрабатывается ожидаемо, а пробел перед запятой, может вызывать проблемы при
-% обработке ссылок.
-\cite{medvedev2006jelektronnye, CEAT:CEAT581, doi:10.1080/01932691.2010.513279,
-Gosele1999161,Li2007StressAnalysis, Shoji199895, test:eisner-sample,
-test:eisner-sample-shorted, AB_patent_Pomerantz_1968, iofis_patent1960}
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-}{% Примеры для biblatex через движок biber
-    \cite{patent2h, patent3h, patent2}%
-}%
-.
-
-\ifnumequal{\value{bibliosel}}{0}{% Примеры для bibtex8
-Попытка реализовать несколько ссылок на конкретные страницы
-для \texttt{bibtex} реализации библиографии:
-[\citenum{Sokolov}, с.~54; \citenum{Gaidaenko}, с.~36].
-}{% Примеры для biblatex через движок biber
-Несколько источников (мультицитата):
-% Тут специально написано по-разному тире, для демонстрации, что
-% применение специальных тире в настоящий момент в biblatex приводит к непоказу
-% "с.".
-\cites[vii--x, 5, 7]{Sokolov}[v"--~x, 25, 526]{Gaidaenko}[vii--x, 5, 7]{Techreport},
-работает только в \texttt{biblatex} реализации библиографии.
-}%
-
-Ссылки на собственные работы:~\cite{vakbib1, confbib1}
-
-Сошлёмся на приложения: Приложение~\ref{app:A}, Приложение~\ref{app:B2}.
-
-Сошлёмся на формулу: формула~\eqref{eq:equation1}.
-
-Сошлёмся на изображение: рисунок~\ref{fig:knuth}.
-
-Стандартной практикой является добавление к ссылкам префикса, характеризующего тип элемента.
-Это не является строгим требованием, но~позволяет лучше ориентироваться в документах большого размера.
-Например, для ссылок на~рисунки используется префикс \textit{fig},
-для ссылки на~таблицу "--- \textit{tab}.
-
-В таблице~\ref{tab:tab_pref} приложения~\ref{app:B4} приведён список рекомендуемых
-к использованию стандартных префиксов.
-
-\section{Формулы}\label{sec:ch1/sec3}
-
-Благодаря пакету \textit{icomma}, \LaTeX~одинаково хорошо воспринимает
-в~качестве десятичного разделителя и запятую (\(3,1415\)), и точку (\(3.1415\)).
-
-\subsection{Ненумерованные одиночные формулы}\label{subsec:ch1/sec3/sub1}
-
-Вот так может выглядеть формула, которую необходимо вставить в~строку
-по~тексту: \(x \approx \sin x\) при \(x \to 0\).
-
-А вот так выглядит ненумерованная отдельностоящая формула c подстрочными
-и надстрочными индексами:
-\[
-(x_1+x_2)^2 = x_1^2 + 2 x_1 x_2 + x_2^2
-\]
-
-Формула с неопределенным интегралом:
-\[
-\int f(\alpha+x)=\sum\beta
-\]
-
-При использовании дробей формулы могут получаться очень высокие:
-\[
-  \frac{1}{\sqrt{2}+
-  \displaystyle\frac{1}{\sqrt{2}+
-  \displaystyle\frac{1}{\sqrt{2}+\cdots}}}
-\]
-
-В формулах можно использовать греческие буквы:
-%Все \original... команды заранее, ради этого примера, определены в Dissertation\userstyles.tex
-\[
-\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta\theta%
-\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho\varrho%
-\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma\Delta%
-\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega
-\]
-\[%https://texfaq.org/FAQ-boldgreek
-\boldsymbol{\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta%
-\theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho%
-\varrho\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma%
-\Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega}
-\]
-
-Для добавления формул можно использовать пары \verb+$+\dots\verb+$+ и \verb+$$+\dots\verb+$$+,
-но~они считаются устаревшими.
-Лучше использовать их функциональные аналоги \verb+\(+\dots\verb+\)+ и \verb+\[+\dots\verb+\]+.
-
-\subsection{Ненумерованные многострочные формулы}\label{subsec:ch1/sec3/sub2}
-
-Вот так можно написать две формулы, не нумеруя их, чтобы знаки <<равно>> были
-строго друг под другом:
-\begin{align}
-  f_W & =  \min \left( 1, \max \left( 0, \frac{W_{soil} / W_{max}}{W_{crit}} \right)  \right), \nonumber \\
-  f_T & =  \min \left( 1, \max \left( 0, \frac{T_s / T_{melt}}{T_{crit}} \right)  \right), \nonumber
-\end{align}
-
-Выровнять систему ещё и по переменной \( x \) можно, используя окружение
-\verb|alignedat| из пакета \verb|amsmath|. Вот так:
-\[
-    |x| = \left\{
-    \begin{alignedat}{2}
-        &&x, \quad &\text{eсли } x\geqslant 0 \\
-        &-&x, \quad & \text{eсли } x<0
-    \end{alignedat}
-    \right.
-\]
-Здесь первый амперсанд (в исходном \LaTeX\ описании формулы) означает
-выравнивание по~левому краю, второй "--- по~\( x \), а~третий "--- по~слову
-<<если>>. Команда \verb|\quad| делает большой горизонтальный пробел.
-
-Ещё вариант:
-\[
-    |x|=
-    \begin{cases}
-    \phantom{-}x, \text{если } x \geqslant 0 \\
-    -x, \text{если } x<0
-    \end{cases}
-\]
-
-Кроме того, для  нумерованных формул \verb|alignedat| делает вертикальное
-выравнивание номера формулы по центру формулы. Например, выравнивание
-компонент вектора:
+Свободная энергия ХЖК, связанная с искажением ориентационной структуры директора, может быть представлена в виде суммы четырёх слагаемых~\eqref{F_tot very basic}
 \begin{equation}
-\label{eq:2p3}
-\begin{alignedat}{2}
-{\mathbf{N}}_{o1n}^{(j)} = \,{\sin} \phi\,n\!\left(n+1\right)
-         {\sin}\theta\,
-         \pi_n\!\left({\cos} \theta\right)
-         \frac{
-               z_n^{(j)}\!\left( \rho \right)
-              }{\rho}\,
-           &{\boldsymbol{\hat{\mathrm e}}}_{r}\,+   \\
-+\,
-{\sin} \phi\,
-         \tau_n\!\left({\cos} \theta\right)
-         \frac{
-            \left[\rho z_n^{(j)}\!\left( \rho \right)\right]^{\prime}
-              }{\rho}\,
-            &{\boldsymbol{\hat{\mathrm e}}}_{\theta}\,+   \\
-+\,
-{\cos} \phi\,
-         \pi_n\!\left({\cos} \theta\right)
-         \frac{
-            \left[\rho z_n^{(j)}\!\left( \rho \right)\right]^{\prime}
-              }{\rho}\,
-            &{\boldsymbol{\hat{\mathrm e}}}_{\phi}\:.
-\end{alignedat}
+\FF_\mathrm{tot} = \FF_\mathrm{e} + \FF_\mathrm{sf} + \FF_\mathrm{f} + \FF_\mathrm{flex}.
+\label{F_tot very basic}
+\end{equation}
+Здесь $\FF_\mathrm{e}$ -- вклад в свободную энергию, связанный с ориентационной упругостью в объёме, $\FF_\mathrm{sf}$ -- упругая энергия сцепления молекул ЖК с ограничивающими поверхностями, $\FF_\mathrm{f}$ -- энергия ЖК как диэлектрика во внешнем электрическом поле, $\FF_\mathrm{flex}$ -- вклад в свободную энергию, обусловленный взаимодействием флексоэлектрической поляризации с внешним электрическим полем. Эти слагаемые можно естественным образом разделить на две группы: обусловленные ориентационной упругостью (первые два слагаемых в~\eqref{F_tot very basic}) и возникающие из-за взаимодействия ЖК с внешним полем (третье и четвёртое слагаемые в~\eqref{F_tot very basic}).
+
+\section{Свободная энергия упругих искажений ориентационной структуры}\label{sec:ch1/sec1}
+Первое слагаемое в~\eqref{F_tot very basic}, свободная энергия упругих ориентационных искажений $\FF_e$, было впервые описано в работах Озена~\autocite{Oseen1933} и Цохер~\cite{Zocher1933} и более подробно изучено Франком~\autocite{Frank1958}. Этот вклад может быть записан как~\cite{deGennesbook1995}
+\begin{equation}
+\FF_\mathrm{e} = \frac{S_\perp}{2} \int\limits_{l_1}^{l_2}\left[ K_{11} (\diver{\textbf{n}})^2 + K_{22} (\textbf{n}\rot{\textbf{n}} + q_0)^2 + K_{33} (\textbf{n}\times \rot{\textbf{n}})^2 \right]\, dz.
+\label{F_e from n}
+\end{equation}
+Здесь $S_{\perp}$ -- площадь ограничивающих пластин, $K_{ii}$ -- модули Франка, $\pi/q_0$ -- период геликоидальной спирали ХЖК.
+Физический смысл констант $K_{ii}$ удобно пояснить на примере свободной энергии Франка для нематического ЖК, которая получается из~\eqref{F_e from n} при $q_0 = 0$.
+Тогда каждое из трёх слагаемых подынтегрального выражения соответствует искажениям определённого типа.
+При деформации поперечного изгиба (Рисунок~\ref{distortions}a) в правой части~\eqref{F_e from n} остаётся только слагаемое с $K_{11}$.
+При деформации кручения (Рисунок~\ref{distortions}b) в правой части~\eqref{F_e from n} остаётся только слагаемое с $K_{22}$.
+Наконец, при деформации продольного изгиба (Рисунок~\ref{distortions}c) остаётся только слагаемое с $K_{33}$.
+Таким образом, $K_{11}$, $K_{22}$ и $K_{33}$ являются модулями поперечного изгиба, кручения и продольного изгиба соответственно.
+\todo{Будет ли здесь что-то про $K_{13}$ и $K_{24}$? Неизвестно!}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{ThreeDistortions}
+	\caption{Различные типы деформаций поля директора в ЖК: a -- поперечный изгиб, b -- кручение, c -- продольный изгиб.}
+	\label{distortions}
+\end{figure}
+
+Для дальнейшего анализа свободной энергии удобно представить декартовы координаты директора $\bb{n}(z)$ как функции полярного угла $\theta(z)$ и азимутального угла $\varphi(z)$ (Рисунок~\ref{Coords}):
+\begin{equation}
+\bb{n} = 
+\begin{pmatrix}
+\sin{\theta}\cos{\phi}\\
+\sin{\theta}\sin{\phi}\\
+\cos{\theta}
+\end{pmatrix}.
 \end{equation}
 
-Ещё об отступах. Иногда для лучшей <<читаемости>> формул полезно
-немного исправить стандартные интервалы \LaTeX\ с учётом логической
-структуры самой формулы. Например в формуле~\ref{eq:2p3} добавлен
-небольшой отступ \verb+\,+ между основными сомножителями, ниже
-результат применения всех вариантов отступа:
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=7cm]{pic_04}
+	\caption{Полярный $\theta(z)$ и азимутальный $\phi(z)$ углы директора $\bb{n}(z)$.}
+	\label{Coords}
+\end{figure}
+Для $\diver{\bb{n}}$ и $\rot{\bb{n}}$ имеем:
+\begin{equation}
+\begin{split}
+&\diver{\bb{n}} = -\theta' \sin{\theta},\\
+&\rot{\bb{n}} = \begin{pmatrix}-\theta'\cos{\theta}\sin{\phi}-\phi'\sin{\theta}\cos{\phi}\\\theta'\cos{\theta}\cos{\phi}-\phi'\sin{\theta}\sin{\phi}\\0\end{pmatrix}.
+\end{split}
+\label{div and rot}
+\end{equation}
+Здесь штрихом обозначена производная по $z$. Подставляя~\eqref{div and rot} в~\eqref{F_e from n}, получаем
+\begin{equation}
+\FF_\mathrm{e} =\FF^\mathrm{(0)}_{e} + \frac{S_\perp}{2} \int\limits_{0}^{L}\left[ \AA(\theta) (\theta')^2 + \BB(\theta) (\phi ' )^2 - \CC(\theta)\phi' \right]\, dz.
+\label{eq:F_e_basic}
+\end{equation}
+\begin{equation}
+\begin{aligned}[c]
+\AA (\theta) &= K_{11}\sin^2{\theta} + K_{33}\cos^2{\theta},\\
+\BB (\theta) &= \sin^2{\theta} \left( K_{22}\sin^2{\theta} + K_{33}\cos^2{\theta}  \right),\\
+\CC (\theta) &= q_0 K_{22}\sin^2{\theta}.
+\end{aligned}
+\end{equation}
+где $\FF^\mathrm{(0)}_{e} = VK_{22}q_0^2/2$, а $V = S_\bot L$ -- это объём ячейки.
+
+Второе слагаемое в выражении~\eqref{F_tot very basic} -- энергия сцепления ХЖК с подложкой:
+\begin{equation}
+\FF_\mathrm{sf} = \frac{S_\perp}{2}\sum\limits_{\alpha=1,2} w_\alpha \left( \textbf{n}(l_\alpha),\, \textbf{n}^{(\alpha)}_0 \right), \quad l_1 = 0, \quad l_2 = L.
+\label{F_bound very basic}
+\end{equation}
+Здесь индекс $\alpha = 1,2$ нумерует границы, скалярные функции $w_\alpha$  зависят от направлений директора на границах ячейки $\textbf{n}(l_\alpha)$, а также от направления осей лёгкого ориентирования $\textbf{n}^{(\alpha)}_0$.
+Важное свойство функций $w_\alpha$ в~\eqref{F_bound very basic} -- обращение соответствующей функции в ноль, если $\bb{n}(l_\alpha) = \bb{n}^{(\alpha)}_0$. Конкретный вид $w_\alpha$ выбирается в соответствии с решаемой задачей.
+Так, в случае малых отклонений $\bb{n}(l_\alpha)$ от $\bb{n}^{(\alpha)}_0$ возможно использование квадратичной аппроксимации по разности этих векторов:
+\begin{equation}
+w_\alpha(\bb{n}(l_\alpha),\ \bb{n}^{(\alpha)}_0) = w_\alpha(\bb{n}(l_\alpha) - \bb{n}^{(\alpha)}_0) = (\bb{n}(l_\alpha) - \bb{n}^{(\alpha)}_0) \hat{W}_\alpha (\bb{n}(l_\alpha) - \bb{n}^{(\alpha)}_0)
+\label{Square_approximation_matrices}
+\end{equation}
+Здесь $\hat{W}_\alpha$ -- положительно определённые матрицы размера $3\times 3$.
+Потенциал~\eqref{Square_approximation_matrices} является квадратичным по отклонениям директора на границах. Также применяется потенциал, квадратичный по отклонениям углов и использованный, например, в~\cite{VAR2013}:
+\begin{equation}
+w_\alpha(\theta_\alpha,\phi_\alpha, \theta_0^{(\alpha)}, \phi_0^{(\alpha)}) = W^{(\alpha)}_\theta \left( \theta_\alpha - \theta^{(\alpha)}_0 \right)^2 + W^{(\alpha)}_\phi \left( \phi_\alpha - \phi^{(\alpha)}_0 \right)^2.
+\label{Square_approximation}
+\end{equation}
+Здесь $W^{(\alpha)}_{\theta,\, \phi} > 0$ -- константы сцепления с подложкой, $\theta^{(\alpha)}_0$ и $\phi^{(\alpha)}_0$ -- углы лёгкого ориентирования на границах, также введены обозначения: $\theta_1 = \theta(0)$, $\phi_1 = \phi(0)$, $\theta_2 = \theta(L)$, $\phi_2 = \phi(L)$.
+Часто используется потенциал, который был предложен Рапини и Папуларом в 1969 году~\cite{Rapini69}:
+\begin{equation}
+w_\alpha(\theta_\alpha,\phi_\alpha, \theta_0^{(\alpha)}, \phi_0^{(\alpha)}) = W^{(\alpha)}_\theta \sin^2 \left( \theta_\alpha - \theta^{(\alpha)}_0 \right) + W^{(\alpha)}_\phi \sin^2 \left( \phi_\alpha - \phi^{(\alpha)}_0 \right)
+\label{RP_anchoring}
+\end{equation}
+Заметим, что в низшем (квадратичном) приближении потенциалы~\eqref{Square_approximation} и~\eqref{RP_anchoring} совпадают.
+Для описания сцепления с подложкой в задачах, связанных с деформацией шага спирали ХЖК, удобен B-потенциал, предложенный в работах~\cite{Belyakov2004, Belyakov2006}:
+\begin{equation}
+w_\alpha(\phi_\alpha, \phi_0^{(\alpha)}) = - W_\phi^{(\alpha)}\left( \cos^2\frac{\phi_\alpha - \phi_0^{(\alpha)}}{2} - \frac{1}{2} \right)
+\label{B-potential}
+\end{equation}
+Также отметим, что если энергия сцепления с подложкой много больше остальных вкладов, то константы $W_{\theta}^{(\alpha)}$ и $W_{\phi}^{(\alpha)}$ устремляются к бесконечности, и положение директора на границах фиксируется.
+В таком случае говорят о жёстких граничных условиях.
+
+В данной работе используется потенциал Рапини-Папулара~\eqref{RP_anchoring}:
+\begin{equation}
+\FF_\mathrm{sf} = \frac{S_\perp}{2}\sum\limits_{\alpha=1,2} W^{(\alpha)}_\theta \sin^2 \left( \theta_\alpha - \theta^{(\alpha)}_0 \right) + W^{(\alpha)}_\phi \sin^2 \left( \phi_\alpha - \phi^{(\alpha)}_0 \right)
+\label{eq:F_sf final}
+\end{equation}
+
+\section{Энергия взаимодействия с полем}\label{sec:ch1/sec2}
+Третье слагаемое в выражении~\eqref{F_tot very basic} -- энергия электрического поля в диэлектрике:
+\begin{equation}
+\FF_\mathrm{f} = -\frac{S_\perp}{2} \int\limits_0^L \frac{(\hat{\varepsilon}\bb{E},\, \textbf{E})}{4\pi}\, dz.
+\label{F_f very basic}
+\end{equation}
+Тензор диэлектрической проницаемости в одноосном ЖК имеет следующий вид~\eqref{eps in LC}:
+\begin{equation*}
+\epsilon_{ij} = \epsilon_\parallel n_i n_j + \epsilon_\perp (\delta_{ij} - n_i n_j),
+\label{eps in LC}
+\end{equation*}
+где $\epsilon_\parallel$ и $\epsilon_\perp$ -- диэлектрические проницаемости вдоль и поперёк директора. Здесь индексы $i$ и $j$ принимают значения $1$, $2$, $3$, что соответствует пространственным координатам $x$, $y$, $z$.
+
+Наконец, последний вклад в~\eqref{F_tot very basic} возникает благодаря флексоэлектрической поляризации.
+Наиболее общее выражение $i$-ой компоненты вектора флексоэлектрической поляризации $\bb{P}^\mathrm{flex}$ можно, с учётом малости искажений ориентационной структуры, записать следующим образом:
+\begin{equation}
+P^\mathrm{flex}_i = f_{ijk} \partial_k n_j,
+\label{P_fl_basic}
+\end{equation}
+здесь подразумевается суммирование по повторящимся значкам.
+Тензор $f_{ijk}$, называемый флексоэлектрическим, должен состоять из компонент дирекора $\bb{n}$ и символов Кронекера.
+Так как $\bb{n}$ и $-\bb{n}$ эквивалентны, свободная энергия должна быть инвариантна относительно этой замены. Значит, тензор $f_{ijk}$ может содержать в себе только нечётные степени компонент директора.
+Таким образом, наиболее общее выражение для $f_{ijk}$:
+\begin{equation}
+f_{ijk} = e_1 n_i \delta_{jk} + e_2 n_j \delta_{ik} + e_3 n_k \delta_{ij} + e_4 n_i n_j n_k,
+\label{f_ijk basic}
+\end{equation}
+где $e_1$, $e_2$, $e_3$, $e_4$ -- флексоэлектрические коэффициенты.
+Подставляя~\eqref{f_ijk basic} в~\eqref{P_fl_basic}, получаем следующие четыре слагаемых:
 \begin{align*}
-\backslash! &\quad f(x) = x^2\! +3x\! +2 \\
-  \mbox{по-умолчанию} &\quad f(x) = x^2+3x+2 \\
-\backslash, &\quad f(x) = x^2\, +3x\, +2 \\
-\backslash{:} &\quad f(x) = x^2\: +3x\: +2 \\
-\backslash; &\quad f(x) = x^2\; +3x\; +2 \\
-\backslash \mbox{space} &\quad f(x) = x^2\ +3x\ +2 \\
-\backslash \mbox{quad} &\quad f(x) = x^2\quad +3x\quad +2 \\
-\backslash \mbox{qquad} &\quad f(x) = x^2\qquad +3x\qquad +2
+&e_1 n_i \delta_{jk} \partial_k n_j = e_1 n_i \partial_j n_j = e_1 n_i \diver{\textbf{n}},\\
+&e_2 n_j \delta_{ik} \partial_k n_j = e_2 n_j\partial_i n_j = 0,\\
+&e_3 n_k \delta_{ij} \partial_k n_j = e_3 (\textbf{n},\, \nabla)n_i = e_3\left[\rot{\textbf{n}}\times \textbf{n}\right]_i,\\
+&e_4 n_i n_j n_k \partial_k n_j = 0.
 \end{align*}
-
-Можно использовать разные математические алфавиты:
-\begin{align}
-\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber \\
-\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber \\
-\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ} \nonumber
-\end{align}
-
-Посмотрим на систему уравнений на примере аттрактора Лоренца:
-
-\[
-\left\{
-  \begin{array}{rl}
-    \dot x = & \sigma (y-x) \\
-    \dot y = & x (r - z) - y \\
-    \dot z = & xy - bz
-  \end{array}
-\right.
-\]
-
-А для вёрстки матриц удобно использовать многоточия:
-\[
-\left(
-  \begin{array}{ccc}
-    a_{11} & \ldots & a_{1n} \\
-    \vdots & \ddots & \vdots \\
-    a_{n1} & \ldots & a_{nn} \\
-  \end{array}
-\right)
-\]
-
-\subsection{Нумерованные формулы}\label{subsec:ch1/sec3/sub3}
-
-А вот так пишется нумерованная формула:
+Здесь учтено, что $n_i \partial_j n_i = 0$, так как $\textbf{n}^2 = 1$.
+Вектор флексоэлектрической поляризации записывается в виде
 \begin{equation}
-  \label{eq:equation1}
-  e = \lim_{n \to \infty} \left( 1+\frac{1}{n} \right) ^n
+\textbf{P}^\mathrm{flex} = e_1 \textbf{n}\diver{\textbf{n}} + e_3 \left[ \rot{\textbf{n}} \times \textbf{n} \right].
+\label{P_fl through n}
 \end{equation}
 
-Нумерованных формул может быть несколько:
+Таким образом, вклад флексоэлектрической поляризации в свободную энергию можно записать как
 \begin{equation}
-  \label{eq:equation2}
-  \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{k^2} = \frac{\pi^2}{6}
+\FF_\mathrm{flex} = - S_\bot \int\limits_0^L (\bb{P}^\mathrm{flex},\, \bb{E})\, dz.
 \end{equation}
 
-Впоследствии на формулы~\eqref{eq:equation1} и~\eqref{eq:equation2} можно ссылаться.
-
-Сделать так, чтобы номер формулы стоял напротив средней строки, можно,
-используя окружение \verb|multlined| (пакет \verb|mathtools|) вместо
-\verb|multline| внутри окружения \verb|equation|. Вот так:
-\begin{equation} % \tag{S} % tag - вписывает свой текст
-  \label{eq:equation3}
-    \begin{multlined}
-        1+ 2+3+4+5+6+7+\dots + \\
-        + 50+51+52+53+54+55+56+57 + \dots + \\
-        + 96+97+98+99+100=5050
-    \end{multlined}
+Вводя в вектор электрической индукции помимо диэлектрической поляризации $\bb{P}$ ещё и флексоэлектрическую $\bb{P}^\mathrm{flex}$, имеем
+\begin{equation}
+\bb{D} = \bb{E} + 4\pi\bb{P} + 4\pi \bb{P}^\mathrm{flex} = \hat{\varepsilon}\bb{E} + 4\pi \bb{P}^\mathrm{flex} 
 \end{equation}
+Для вектора электрической индукции в одноосной среде можно написать:	
+\begin{equation}
+\textbf{D} = \epsilon_\perp \textbf{E}+\epsilon_a (\textbf{E},\, \textbf{n})\textbf{n} + 4\pi \textbf{P}^\mathrm{flex},\quad \epsilon_{a} = \epsilon_\parallel - \epsilon_\perp,
+\label{D and E from n}
+\end{equation}
+где $\epsilon_a$ -- величина анизотропии диэлектрической проницаемости, а $\textbf{P}^\mathrm{flex}$ -- флексоэлектрическая поляризация~\cite{deGennesbook1995}, возникающая благодаря искажениям поля директора ХЖК. 
 
-Используя команду \verb|\eqrefs|, можно
-красиво ссылаться сразу на несколько формул
-\eqrefs{eq:equation1, eq:equation3, eq:equation2}, даже перепутав
-порядок ссылок \verb|\eqrefs{eq1, eq3, eq2}|.
-Аналогично, для ссылок на несколько рисунков, таблиц и~т.\:д.
-\refs{sec:ch1/sec1, sec:ch1/sec2, sec:ch1/sec3} можно использовать
-команду \verb|\refs|.
-Обе эти команды определены в файле \verb|common/packages.tex|.
+Таким образом, выражение для энергии взаимодействия ХЖК с внешним электрическим полем имеет вид:
+\begin{equation*}
+\FF_\mathrm{E} = \FF_\mathrm{f} + \FF_\mathrm{flex}= - \frac{S_\bot}{8\pi} \int\limits_0^L (\bb{E},\, \hat{\varepsilon}\bb{E})\, dz - S_\bot \int\limits_0^L (\bb{P}^\mathrm{flex},\, \bb{E})\, dz
+\end{equation*}
+Как следует из уравнения Максвелла $\rot {\bf E} = 0$ и граничных условий ${E}_{x,y}(0)={E}_{x,y}(L)= 0$, единственная ненулевая компонента вектора ${\bf E}$ -- это $E_z=E(z)$.
+Таким образом, $\bb{P}^\mathrm{flex} \bb{E} = P^\mathrm{flex}_z E_z$. Учитывая, что $P^\mathrm{flex}_z = (e_1 + e_3)n_z \partial_z n_z$ и подставляя~\eqref{Coords}, можно записать для вклада в свободную энергию
+\begin{equation}\label{eqF_f_pref}
+\FF_\mathrm{E} = -\frac{S_{\!\bot}}{8\pi}\int_{0}^{L}E^2(z){\EE}(\theta)dz
++ S_{\!\bot}\bar{e}\int_{0}^{L}
+\sin 2\theta \,\theta' E(z) dz,
+\end{equation}
+где введены обозначения
+\begin{equation}\label{111}
+\EE(\theta) = \ve_\bot + \ve_a \cos^2\theta,\; \bar{e}=(e_1+e_3)/2.
+\end{equation}
+Из другого уравнения Максвелла, $\diver {\bf D}(z) = 0$, следует, что $z$-компонента вектора электрической индукции $D_z$ не зависит от $z$.
+Совмещая это с выражениями~\eqref{Coords} и~\eqref{D and E from n}, получаем
+\begin{equation}\label{E_z=D_z}
+D_z=\EE(\theta)E(z) - 4\pi\bar{e}\sin 2\theta \,\theta',
+\end{equation}
+откуда можно выразить
+\begin{equation}\label{eqE_z}
+E(z)=\left(D_z + 4\pi\bar{e}\sin2\theta \, \theta'\right)/{\EE}(\theta).
+\end{equation}
+Напряжение на обкладках $U$ и $z$-компонента вектора электрической индукции $D_z$ связаны следующим образом:
+\begin{equation}
+U = \int_0^L E(z)\, dz
+=D_z J^{-1}+ 4\pi\bar{e} J_1,
+\end{equation}
+где введены следующие обозначения:
+\begin{equation}\label{D_z=UJ}
+J^{-1}= \int_0^L \frac{dz}{\EE(\theta)},\quad J_1=\varepsilon_a^{-1}\ln\frac{{\EE}(\theta(0))}{{\EE}(\theta(L))}.
+\end{equation}
+Отметим, что $J_1$ зависит только от значений $\theta(z)$ на границах, $\theta(0)$ и $\theta(L)$. Таким образом, для $D_z$ имеем:
+\begin{equation}\label{eqD_z}
+D_z =\left(U-4\pi\bar{e} J_1\right)J,
+\end{equation}
+а выражение для электрического поля имеет вид
+\begin{equation}\label{eqE(z)inhomo=final}
+E(z)=\left(UJ+ 4\pi\bar{e}(\sin2\theta \, \theta'-J_1J) \right)/{\EE}(\theta).
+\end{equation}
+Из выражения~\eqref{eqE(z)inhomo=final} следует, что в ориентационно неоднородной среде с флексоэлектрическими свойствами может возникать ненулевое электрическое поле даже если $U = 0$.
+Подставляя Eq.~\eqref{eqE(z)inhomo=final} в Eq.~\eqref{eqF_f_pref}, получаем итоговое выражение для энергии электрического поля в ячейке ХЖК:
+\begin{equation}\label{eq_F_f_final1}
+\FF_\mathrm{E}=-\frac{S_{\!\bot}}{8\pi}U^2 J +S_{\!\bot} \bar{e}U JJ_1 +2\pi S_{\!\bot} \bar{e}^2\left(\int_{0}^{L}\frac{(\sin 2\theta \,\theta')^2}{{\EE}(\theta)}dz -JJ_1^2\right).
+\end{equation}
+Важно отметить, что в формуле~\eqref{eq_F_f_final1} учтена неоднородность электрического поля, возникающая из-за наличия флексоэлектричества.
+Кроме того, видно, что помимо первых двух слагаемых, зависящих от напряжения $U$, в~\eqref{eq_F_f_final1} присутствуют ещё два слагаемых, зависящих только от ориентационной структуры.
+Для случая $\bar{e}=0$ выражение для энергии записывается так же, как, например, в работах~\cite{Deuling,NonHomoElectricField1972,VAR2013}:
+\begin{equation}\label{E_field}
+\FF_\mathrm{E} = - S_{\!\bot} U^2 J/{8\pi}.
+\end{equation}
+В случае, когда $(\varepsilon_a/\varepsilon_\bot)\cos^2\theta\ll 1$ формула~\eqref{E_field} сводится к более простому виду~\cite{deGennesbook1995}
+\begin{equation}
+\FF_\mathrm{E} =\FF_\mathrm{E}^{(0)} -\frac{S_{\!\bot} \varepsilon_a U^2}{8\pi L^2} \int_0^L \cos^2\theta\, dz,\;\FF_\mathrm{E}^{(0)} =-\frac{S_{\!\bot} U^2\varepsilon_\bot}{8\pi L},
+\end{equation}
+при этом учитывается неоднородность поля директора ${\bf n}(z)$, а электрическое поле в ячейке считается однородным.
 
-Уравнения~\eqrefs{eq:subeq_1,eq:subeq_2} демонстрируют возможности
-окружения \verb|\subequations|.
-\begin{subequations}
-    \label{eq:subeq_1}
-    \begin{gather}
-        y = x^2 + 1 \label{eq:subeq_1-1} \\
-        y = 2 x^2 - x + 1 \label{eq:subeq_1-2}
-    \end{gather}
-\end{subequations}
-Ссылки на отдельные уравнения~\eqrefs{eq:subeq_1-1,eq:subeq_1-2,eq:subeq_2-1}.
-\begin{subequations}
-    \label{eq:subeq_2}
-    \begin{align}
-        y &= x^3 + x^2 + x + 1 \label{eq:subeq_2-1} \\
-        y &= x^2
-    \end{align}
-\end{subequations}
+Заметим, что энергия $\FF_\mathrm{E}$ зависит от знака напряжения $U$ из-за одного из флексоэлектрических членов, $S_{\!\bot} \bar{e}U JJ_1$.
+В случае жёстких симметричных граничных уловий, $\theta(0) = \theta(L)$, этот вклад исчезает благодаря тому, что $J_1 = 0$.
+Отметим, что случай $\bar{e} < 0$ сводится к $\bar{e} > 0$ при помощи замены $(\bar{e}, U)\rightarrow (-\bar{e}, -U)$.
+Таким образом, можно ограничиться рассмотрением только случая $\bar{e} > 0$.
 
-\subsection{Форматирование чисел и размерностей величин}\label{sec:units}
-
-Числа форматируются при помощи команды \verb|\num|:
-\num{5,3};
-\num{2,3e8};
-\num{12345,67890};
-\num{2,6 d4};
-\num{1+-2i};
-\num{.3e45};
-\num[exponent-base=2]{5 e64};
-\num[exponent-base=2,exponent-to-prefix]{5 e64};
-\num{1.654 x 2.34 x 3.430}
-\num{1 2 x 3 / 4}.
-Для написания последовательности чисел можно использовать команды \verb|\numlist| и \verb|\numrange|:
-\numlist{10;30;50;70}; \numrange{10}{30}.
-Значения углов можно форматировать при помощи команды \verb|\ang|:
-\ang{2.67};
-\ang{30,3};
-\ang{-1;;};
-\ang{;-2;};
-\ang{;;-3};
-\ang{300;10;1}.
-
-Обратите внимание, что ГОСТ запрещает использование знака <<->> для обозначения отрицательных чисел
-за исключением формул, таблиц и~рисунков.
-Вместо него следует использовать слово <<минус>>.
-
-Размерности можно записывать при помощи команд \verb|\si| и \verb|\SI|:
-\si{\farad\squared\lumen\candela};
-\si{\joule\per\mole\per\kelvin};
-\si[per-mode = symbol-or-fraction]{\joule\per\mole\per\kelvin};
-\si{\metre\per\second\squared};
-\SI{0.10(5)}{\neper};
-\SI{1.2-3i e5}{\joule\per\mole\per\kelvin};
-\SIlist{1;2;3;4}{\tesla};
-\SIrange{50}{100}{\volt}.
-Список единиц измерений приведён в таблицах~\refs{tab:unit:base,
-tab:unit:derived,tab:unit:accepted,tab:unit:physical,tab:unit:other}.
-Приставки единиц приведены в~таблице~\ref{tab:unit:prefix}.
-
-С дополнительными опциями форматирования можно ознакомиться в~описании пакета \texttt{siunitx};
-изменить или добавить единицы измерений можно в~файле \texttt{siunitx.cfg}.
-
-\begin{table}
-    \centering
-    \captionsetup{justification=centering} % выравнивание подписи по-центру
-    \caption{Основные величины СИ}\label{tab:unit:base}
-    \begin{tabular}{llc}
-        \toprule
-        Название  & Команда                & Символ         \\
-        \midrule
-        Ампер     & \verb|\ampere| & \si{\ampere}   \\
-        Кандела   & \verb|\candela| & \si{\candela}  \\
-        Кельвин   & \verb|\kelvin| & \si{\kelvin}   \\
-        Килограмм & \verb|\kilogram| & \si{\kilogram} \\
-        Метр      & \verb|\metre| & \si{\metre}    \\
-        Моль      & \verb|\mole| & \si{\mole}     \\
-        Секунда   & \verb|\second| & \si{\second}   \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}
-  \small
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Производные единицы СИ}\label{tab:unit:derived}
-    \begin{tabular}{llc|llc}
-        \toprule
-        Название       & Команда                 & Символ              & Название & Команда & Символ \\
-        \midrule
-        Беккерель      & \verb|\becquerel|  & \si{\becquerel}     &
-        Ньютон         & \verb|\newton|  & \si{\newton}                                      \\
-        Градус Цельсия & \verb|\degreeCelsius| & \si{\degreeCelsius} &
-        Ом             & \verb|\ohm| & \si{\ohm}                                         \\
-        Кулон          & \verb|\coulomb| & \si{\coulomb}       &
-        Паскаль        & \verb|\pascal| & \si{\pascal}                                      \\
-        Фарад          & \verb|\farad| & \si{\farad}         &
-        Радиан         & \verb|\radian| & \si{\radian}                                      \\
-        Грей           & \verb|\gray| & \si{\gray}          &
-        Сименс         & \verb|\siemens| & \si{\siemens}                                     \\
-        Герц           & \verb|\hertz| & \si{\hertz}         &
-        Зиверт         & \verb|\sievert| & \si{\sievert}                                     \\
-        Генри          & \verb|\henry| & \si{\henry}         &
-        Стерадиан      & \verb|\steradian| & \si{\steradian}                                   \\
-        Джоуль         & \verb|\joule| & \si{\joule}         &
-        Тесла          & \verb|\tesla| & \si{\tesla}                                       \\
-        Катал          & \verb|\katal| & \si{\katal}         &
-        Вольт          & \verb|\volt| & \si{\volt}                                        \\
-        Люмен          & \verb|\lumen| & \si{\lumen}         &
-        Ватт           & \verb|\watt| & \si{\watt}                                        \\
-        Люкс           & \verb|\lux| & \si{\lux}           &
-        Вебер          & \verb|\weber| & \si{\weber}                                       \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Внесистемные единицы}\label{tab:unit:accepted}
-
-    \begin{tabular}{llc}
-        \toprule
-        Название        & Команда                 & Символ          \\
-        \midrule
-        День            & \verb|\day| & \si{\day}       \\
-        Градус          & \verb|\degree| & \si{\degree}    \\
-        Гектар          & \verb|\hectare| & \si{\hectare}   \\
-        Час             & \verb|\hour| & \si{\hour}      \\
-        Литр            & \verb|\litre| & \si{\litre}     \\
-        Угловая минута  & \verb|\arcminute| & \si{\arcminute} \\
-        Угловая секунда & \verb|\arcsecond| & \si{\arcsecond} \\ %
-        Минута          & \verb|\minute| & \si{\minute}    \\
-        Тонна           & \verb|\tonne| & \si{\tonne}     \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-    \centering
-    \captionsetup{justification=centering}
-    \caption{Внесистемные единицы, получаемые из эксперимента}\label{tab:unit:physical}
-    \begin{tabular}{llc}
-        \toprule
-        Название                & Команда                 & Символ                 \\
-        \midrule
-        Астрономическая единица & \verb|\astronomicalunit| & \si{\astronomicalunit} \\
-        Атомная единица массы   & \verb|\atomicmassunit| & \si{\atomicmassunit}   \\
-        Боровский радиус        & \verb|\bohr| & \si{\bohr}             \\
-        Скорость света          & \verb|\clight| & \si{\clight}           \\
-        Дальтон                 & \verb|\dalton| & \si{\dalton}           \\
-        Масса электрона         & \verb|\electronmass| & \si{\electronmass}     \\
-        Электрон Вольт          & \verb|\electronvolt| & \si{\electronvolt}     \\
-        Элементарный заряд      & \verb|\elementarycharge| & \si{\elementarycharge} \\
-        Энергия Хартри          & \verb|\hartree| & \si{\hartree}          \\
-        Постоянная Планка       & \verb|\planckbar| & \si{\planckbar}        \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Другие внесистемные единицы}\label{tab:unit:other}
-    \begin{tabular}{llc}
-        \toprule
-        Название                  & Команда                 & Символ             \\
-        \midrule
-        Ангстрем                  & \verb|\angstrom| & \si{\angstrom}     \\
-        Бар                       & \verb|\bar| & \si{\bar}          \\
-        Барн                      & \verb|\barn| & \si{\barn}         \\
-        Бел                       & \verb|\bel| & \si{\bel}          \\
-        Децибел                   & \verb|\decibel| & \si{\decibel}      \\
-        Узел                      & \verb|\knot| & \si{\knot}         \\
-        Миллиметр ртутного столба & \verb|\mmHg| & \si{\mmHg}         \\
-        Морская миля              & \verb|\nauticalmile| & \si{\nauticalmile} \\
-        Непер                     & \verb|\neper| & \si{\neper}        \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\begin{table}
-  \small
-  \centering
-  \begin{threeparttable}% выравнивание подписи по границам таблицы
-    \caption{Приставки СИ}\label{tab:unit:prefix}
-    \begin{tabular}{llcc|llcc}
-        \toprule
-        Приставка & Команда                 & Символ      & Степень &
-        Приставка & Команда                 & Символ      & Степень   \\
-        \midrule
-        Иокто     & \verb|\yocto| & \si{\yocto} & -24     &
-        Дека      & \verb|\deca| & \si{\deca}  & 1         \\
-        Зепто     & \verb|\zepto| & \si{\zepto} & -21     &
-        Гекто     & \verb|\hecto| & \si{\hecto} & 2         \\
-        Атто      & \verb|\atto| & \si{\atto}  & -18     &
-        Кило      & \verb|\kilo| & \si{\kilo}  & 3         \\
-        Фемто     & \verb|\femto| & \si{\femto} & -15     &
-        Мега      & \verb|\mega| & \si{\mega}  & 6         \\
-        Пико      & \verb|\pico| & \si{\pico}  & -12     &
-        Гига      & \verb|\giga| & \si{\giga}  & 9         \\
-        Нано      & \verb|\nano| & \si{\nano}  & -9      &
-        Терра     & \verb|\tera| & \si{\tera}  & 12        \\
-        Микро     & \verb|\micro| & \si{\micro} & -6      &
-        Пета      & \verb|\peta| & \si{\peta}  & 15        \\
-        Милли     & \verb|\milli| & \si{\milli} & -3      &
-        Екса      & \verb|\exa| & \si{\exa}   & 18        \\
-        Санти     & \verb|\centi| & \si{\centi} & -2      &
-        Зетта     & \verb|\zetta| & \si{\zetta} & 21        \\
-        Деци      & \verb|\deci| & \si{\deci}  & -1      &
-        Иотта     & \verb|\yotta| & \si{\yotta} & 24        \\
-        \bottomrule
-    \end{tabular}
-  \end{threeparttable}
-\end{table}
-
-\subsection{Заголовки с формулами: \texorpdfstring{\(a^2 + b^2 = c^2\)}{%
-a\texttwosuperior\ + b\texttwosuperior\ = c\texttwosuperior},
-\texorpdfstring{\(\left\vert\textrm{{Im}}\Sigma\left(
-\protect\varepsilon\right)\right\vert\approx const\)}{|ImΣ (ε)| ≈ const},
-\texorpdfstring{\(\sigma_{xx}^{(1)}\)}{σ\_\{xx\}\textasciicircum\{(1)\}}
-}\label{subsec:with_math}
-
-Пакет \texttt{hyperref} берёт текст для закладок в pdf-файле из~аргументов
-команд типа \verb|\section|, которые могут содержать математические формулы,
-а~также изменения цвета текста или шрифта, которые не отображаются в~закладках.
-Чтобы использование формул в заголовках не вызывало в~логе компиляции появление
-предупреждений типа <<\texttt{Token not allowed in~a~PDF string
-(Unicode):(hyperref) removing...}>>, следует использовать конструкцию
-\verb|\texorpdfstring{}{}|, где в~первых фигурных скобках указывается
-формула, а~во~вторых "--- запись формулы для закладок.
-
-\section{Рецензирование текста}\label{sec:markup}
-
-В шаблоне для диссертации и автореферата заданы команды рецензирования.
-Они видны при компиляции шаблона в режиме черновика или при установке
-соответствующей настройки (\verb+showmarkup+) в~файле \verb+common/setup.tex+.
-
-Команда \verb+\todo+ отмечает текст красным цветом.
-\todo{Например, так.}
-
-Команда \verb+\note+ позволяет выбрать цвет текста.
-\note{Чёрный, } \note[red]{красный, } \note[green]{зелёный, }
-\note[blue]{синий.} \note[orange]{Обратите внимание на ширину и расстановку
-формирующихся пробелов, в~результате приведённой записи (зависит также
-от~применяемого компилятора).}
-
-Окружение \verb+commentbox+ также позволяет выбрать цвет.
-
-\begin{commentbox}[red]
-        Красный текст.
-
-        Несколько параграфов красного текста.
-\end{commentbox}
-
-\begin{commentbox}[blue]
-        Синяя формула.
-
-        \begin{equation}
-                \alpha + \beta = \gamma
-        \end{equation}
-\end{commentbox}
-
-\verb+commentbox+ позволяет закомментировать участок кода в~режиме чистовика.
-Чтобы убрать кусок кода для всех режимов, можно использовать окружение
-\verb+comment+.
-
-\begin{comment}
-        Этот текст всегда скрыт.
-\end{comment}
-
-\FloatBarrier
+Подставляя~\eqref{eq:F_e_basic},~\eqref{eq:F_sf final} и~\eqref{eq_F_f_final1} в~\eqref{F_tot very basic}, получаем выражение для свободной энергии ячейки ХЖК во внешнем электрическом поле
+\begin{multline}
+\FF_\mathrm{tot} ={\FF^{(0)}_e}+ \frac{S_{\!\bot}}{2} \int_{0}^{L}\Big[ \AA(\theta) (\theta')^2 + B(\theta) (\phi ' )^2
+- 2C(\theta)\phi' \Big]\, dz +\\
+\,+ \frac{S_{\!\bot}}{2}\sum\limits_{\alpha=1,2} \left[W_\theta^{(\alpha)} {\sin^2\big( \theta - \theta_0^{(\alpha)}\big)}\right.
++ \left.W_\phi^{(\alpha)}{\sin^2 \big( \phi - \phi_0^{(\alpha)} \big)}\right] -\\
+-S_{\!\bot} \EuScript{U}^2J/8\pi, \label{eq:free-energy}
+\end{multline}
+где
+\begin{equation}\label{eqAAtilde}
+\AA(\theta) =A(\theta) +4\pi \bar{e}^2{\sin^22\theta}/{\EE}(\theta),\; \EuScript{U}=U-4\pi \bar{e}J_1,
+\end{equation}

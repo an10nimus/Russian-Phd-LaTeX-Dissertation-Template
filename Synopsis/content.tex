@@ -1,19 +1,17 @@
-\pdfbookmark{Общая характеристика работы}{characteristic}             % Закладка pdf
 \section*{Общая характеристика работы}
 
-\newcommand{\actuality}{\pdfbookmark[1]{Актуальность}{actuality}\underline{\textbf{\actualityTXT}}}
-\newcommand{\progress}{\pdfbookmark[1]{Разработанность темы}{progress}\underline{\textbf{\progressTXT}}}
-\newcommand{\aim}{\pdfbookmark[1]{Цели}{aim}\underline{{\textbf\aimTXT}}}
-\newcommand{\tasks}{\pdfbookmark[1]{Задачи}{tasks}\underline{\textbf{\tasksTXT}}}
-\newcommand{\aimtasks}{\pdfbookmark[1]{Цели и задачи}{aimtasks}\aimtasksTXT}
-\newcommand{\novelty}{\pdfbookmark[1]{Научная новизна}{novelty}\underline{\textbf{\noveltyTXT}}}
-\newcommand{\influence}{\pdfbookmark[1]{Практическая значимость}{influence}\underline{\textbf{\influenceTXT}}}
-\newcommand{\methods}{\pdfbookmark[1]{Методология и методы исследования}{methods}\underline{\textbf{\methodsTXT}}}
-\newcommand{\defpositions}{\pdfbookmark[1]{Положения, выносимые на защиту}{defpositions}\underline{\textbf{\defpositionsTXT}}}
-\newcommand{\reliability}{\pdfbookmark[1]{Достоверность}{reliability}\underline{\textbf{\reliabilityTXT}}}
-\newcommand{\probation}{\pdfbookmark[1]{Апробация}{probation}\underline{\textbf{\probationTXT}}}
-\newcommand{\contribution}{\pdfbookmark[1]{Личный вклад}{contribution}\underline{\textbf{\contributionTXT}}}
-\newcommand{\publications}{\pdfbookmark[1]{Публикации}{publications}\underline{\textbf{\publicationsTXT}}}
+\newcommand{\actuality}{\underline{\textbf{\actualityTXT}}}
+\newcommand{\progress}{\underline{\textbf{\progressTXT}}}
+\newcommand{\aim}{\underline{{\textbf\aimTXT}}}
+\newcommand{\tasks}{\underline{\textbf{\tasksTXT}}}
+\newcommand{\novelty}{\underline{\textbf{\noveltyTXT}}}
+\newcommand{\influence}{\underline{\textbf{\influenceTXT}}}
+\newcommand{\methods}{\underline{\textbf{\methodsTXT}}}
+\newcommand{\defpositions}{\underline{\textbf{\defpositionsTXT}}}
+\newcommand{\reliability}{\underline{\textbf{\reliabilityTXT}}}
+\newcommand{\probation}{\underline{\textbf{\probationTXT}}}
+\newcommand{\contribution}{\underline{\textbf{\contributionTXT}}}
+\newcommand{\publications}{\underline{\textbf{\publicationsTXT}}}
 
 \input{common/characteristic} % Характеристика работы по структуре во введении и в автореферате не отличается (ГОСТ Р 7.0.11, пункты 5.3.1 и 9.2.1), потому её загружаем из одного и того же внешнего файла, предварительно задав форму выделения некоторым параметрам
 
@@ -24,11 +22,10 @@
 %\textbf{ХХХ}~страниц текста с~\textbf{ХХ}~рисунками и~5~таблицами. Список
 %литературы содержит \textbf{ХХX}~наименование.
 
-\pdfbookmark{Содержание работы}{description}                          % Закладка pdf
 \section*{Содержание работы}
 Во \underline{\textbf{введении}} обосновывается актуальность
 исследований, проводимых в~рамках данной диссертационной работы,
-приводится обзор научной литературы по~изучаемой проблеме,
+приводится обзор научной литературы по изучаемой проблеме,
 формулируется цель, ставятся задачи работы, излагается научная новизна
 и практическая значимость представляемой работы. В~последующих главах
 сначала описывается общий принцип, позволяющий \dots, а~потом идёт
@@ -39,16 +36,10 @@
 
  картинку можно добавить так:
 \begin{figure}[ht]
-    \centerfloat{
-        \hfill
-        \subcaptionbox{\LaTeX}{%
-            \includegraphics[scale=0.27]{latex}}
-        \hfill
-        \subcaptionbox{Knuth}{%
-            \includegraphics[width=0.25\linewidth]{knuth1}}
-        \hfill
-    }
-    \caption{Подпись к картинке.}\label{fig:latex}
+  \centerfloat{
+    \includegraphics[scale=0.27]{latex}
+  }
+  \caption{Подпись к картинке.}\label{fig:latex}
 \end{figure}
 
 Формулы в строку без номера добавляются так:
@@ -70,12 +61,9 @@
 
 В \underline{\textbf{четвертой главе}} приведено описание
 
-\FloatBarrier
-\pdfbookmark{Заключение}{conclusion}                                  % Закладка pdf
 В \underline{\textbf{заключении}} приведены основные результаты работы, которые заключаются в следующем:
 \input{common/concl}
 
-\pdfbookmark{Литература}{bibliography}                                % Закладка pdf
 При использовании пакета \verb!biblatex! список публикаций автора по теме
 диссертации формируется в разделе <<\publications>>\ файла
 \verb!common/characteristic.tex!  при помощи команды \verb!\nocite!

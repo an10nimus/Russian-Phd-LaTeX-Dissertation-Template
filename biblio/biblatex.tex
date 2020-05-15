@@ -17,9 +17,9 @@ sortcites=true,% сортировать номера затекстовых сс
 doi=false,% Показывать или нет ссылки на DOI
 isbn=false,% Показывать или нет ISBN, ISSN, ISRN
 ]{biblatex}[2016/09/17]
-\ltx@iffilelater{biblatex-gost.def}{2017/05/03}%
-{\toggletrue{bbx:gostbibliography}%
-\renewcommand*{\revsdnamepunct}{\addcomma}}{}
+%\ltx@iffilelater{biblatex-gost.def}{2017/05/03}%
+%{\toggletrue{bbx:gostbibliography}%
+%\renewcommand*{\revsdnamepunct}{\addcomma}}{}
 }{%Черновик
 \usepackage[%
 backend=biber,% движок
@@ -30,74 +30,10 @@ sorting=none,% настройка сортировки списка литера
 }
 \makeatother
 
-\providebool{blxmc} % biblatex version needs and has MakeCapital workaround
-\boolfalse{blxmc} % setting our new boolean flag to default false
 \ifxetexorluatex
 \else
 % Исправление случая неподдержки знака номера в pdflatex
     \DefineBibliographyStrings{russian}{number={\textnumero}}
-
-% Исправление случая отсутствия прописных букв в некоторых случаях
-% https://github.com/plk/biblatex/issues/960#issuecomment-596658282
-    \ifdefmacro{\ExplSyntaxOn}{}{\usepackage{expl3}}
-    \makeatletter
-    \ltx@ifpackagelater{biblatex}{2020/02/23}{
-    % Assuming this version of biblatex defines MakeCapital correctly
-    }{
-        \ltx@ifpackagelater{biblatex}{2019/12/01}{
-            % Assuming this version of biblatex defines MakeCapital incorrectly
-            \usepackage{expl3}[2020/02/25]
-            \@ifpackagelater{expl3}{2020/02/25}{
-                \booltrue{blxmc} % setting our new boolean flag to true
-            }{}
-        }{}
-    }
-    \makeatother
-    \ifblxmc
-        \typeout{Assuming this version of biblatex defines MakeCapital
-        incorrectly}
-        \usepackage{xparse}
-        \makeatletter
-        \ExplSyntaxOn
-        \NewDocumentCommand \blx@maketext@lowercase {m}
-          {
-            \text_lowercase:n {#1}
-          }
-
-        \NewDocumentCommand \blx@maketext@uppercase {m}
-          {
-            \text_uppercase:n {#1}
-          }
-
-        \RenewDocumentCommand \MakeCapital {m}
-          {
-            \text_titlecase_first:n {#1}
-          }
-        \ExplSyntaxOff
-
-        \protected\def\blx@biblcstring#1#2#3{%
-          \blx@begunit
-          \blx@hyphenreset
-          \blx@bibstringsimple
-          \lowercase{\edef\blx@tempa{#3}}%
-          \ifcsundef{#2@\blx@tempa}
-            {\blx@warn@nostring\blx@tempa
-             \blx@endnounit}
-            {#1{\blx@maketext@lowercase{\csuse{#2@\blx@tempa}}}%
-             \blx@endunit}}
-
-        \protected\def\blx@bibucstring#1#2#3{%
-          \blx@begunit
-          \blx@hyphenreset
-          \blx@bibstringsimple
-          \lowercase{\edef\blx@tempa{#3}}%
-          \ifcsundef{#2@\blx@tempa}
-            {\blx@warn@nostring\blx@tempa
-             \blx@endnounit}
-            {#1{\blx@maketext@uppercase{\csuse{#2@\blx@tempa}}}%
-             \blx@endunit}}
-        \makeatother
-    \fi
 \fi
 
 \ifsynopsis
@@ -206,7 +142,7 @@ sorting=none,% настройка сортировки списка литера
             \step[fieldsource=authorconf,final=true]
             \step[fieldset=keywords,fieldvalue={,biblioauthorconf},append=true]
         }
-        \map[overwrite]{ % записываем информацию о типе публикации в ключевые слова
+        \map[overwrite]{ % записываем информацию о тиexпе публикации в ключевые слова
             \step[fieldsource=authorother,final=true]
             \step[fieldset=keywords,fieldvalue={,biblioauthorother},append=true]
         }
@@ -512,14 +448,14 @@ sorting=none,% настройка сортировки списка литера
 \newcommand*{\insertbiblioauthorgrouped}{
     \section*{\bibtitleauthor}
     \ifsynopsis
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorvak,    title=\bibtitleauthorvak,resetnumbers=true] % Работы автора из списка ВАК (сброс нумерации)
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorvak,    title=\bibtitleauthorvak,resetnumbers=true]
     \else
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorvak,    title=\bibtitleauthorvak,resetnumbers=false] % Работы автора из списка ВАК (сквозная нумерация)
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorvak,    title=\bibtitleauthorvak,resetnumbers=false]
     \fi
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorwos,    title=\bibtitleauthorwos,resetnumbers=false]% Работы автора, индексируемые Web of Science
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorscopus, title=\bibtitleauthorscopus,resetnumbers=false]% Работы автора, индексируемые Scopus
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorconf,   title=\bibtitleauthorconf,resetnumbers=false]% Тезисы конференций
-    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorother,  title=\bibtitleauthorother,resetnumbers=false]% Прочие работы автора
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorwos,    title=\bibtitleauthorwos,resetnumbers=false]%
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorscopus, title=\bibtitleauthorscopus,resetnumbers=false]%
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorconf,   title=\bibtitleauthorconf,resetnumbers=false]%
+    \printbibliography[heading=pubsubgroup, section=0, keyword=biblioauthorother,  title=\bibtitleauthorother,resetnumbers=false]%
 }
 
 \newcommand*{\insertbiblioexternal}{

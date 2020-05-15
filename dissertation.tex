@@ -1,11 +1,11 @@
 %&preformat-disser
 \RequirePackage[l2tabu,orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
 % Формат А4, 14pt (ГОСТ Р 7.0.11-2011, 5.3.6)
-\documentclass[a4paper,14pt,oneside,openany]{memoir}
+\documentclass[a4paper,14pt,oneside,openany,oldfontcommands]{memoir}
 
 \input{common/setup}            % общие настройки шаблона
 \input{common/packages}         % Пакеты общие для диссертации и автореферата
-\synopsisfalse                      % Этот документ --- не автореферат
+\synopsisfalse                      % Этот документ --- не автореферат 
 \input{Dissertation/dispackages}    % Пакеты для диссертации
 \input{Dissertation/userpackages}   % Пакеты для специфических пользовательских задач
 
@@ -27,7 +27,7 @@
 }{
     \input{biblio/biblatex}     % Реализация пакетом biblatex через движок biber
 }
-
+\addbibresource[label=bl-external]{biblio/external.bib}
 % Вывести информацию о выбранных опциях в лог сборки
 \typeout{Selected options:}
 \typeout{Draft mode: \arabic{draft}}
@@ -37,17 +37,19 @@
 \typeout{Precompile images: \arabic{imgprecompile}}
 % Вывести информацию о версиях используемых библиотек в лог сборки
 \listfiles
-
+	
 %%% Управление компиляцией отдельных частей диссертации %%%
 % Необходимо сначала иметь полностью скомпилированный документ, чтобы все
 % промежуточные файлы были в наличии
 % Затем, для вывода отдельных частей можно воспользоваться командой \includeonly
 % Ниже примеры использования команды:
 %
+%\includeonly{Dissertation/title,Dissertation/contents,Dissertation/introduction}
 %\includeonly{Dissertation/part2}
 %\includeonly{Dissertation/contents,Dissertation/appendix,Dissertation/conclusion}
 %
 % Если все команды закомментированы, то документ будет выведен в PDF файл полностью
+%\includeonly{Dissertation/title,Dissertation/contents,Dissertation/introduction,Dissertation/references}
 
 \begin{document}
 
@@ -66,11 +68,13 @@
 \include{Dissertation/part1}           % Глава 1
 \include{Dissertation/part2}           % Глава 2
 \include{Dissertation/part3}           % Глава 3
-\include{Dissertation/conclusion}      % Заключение
-\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
-\include{Dissertation/dictionary}      % Словарь терминов
+\include{Dissertation/part4}           % Глава 4
+\include{Dissertation/part5}           % Глава 5
+%\include{Dissertation/conclusion}      % Заключение
+%\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
+%\include{Dissertation/dictionary}      % Словарь терминов
 \include{Dissertation/references}      % Список литературы
-\include{Dissertation/lists}           % Списки таблиц и изображений (иллюстративный материал)
+%\include{Dissertation/lists}           % Списки таблиц и изображений (иллюстративный материал)
 
 %%% Настройки для приложений
 \appendix
@@ -79,6 +83,6 @@
 \renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}
 \renewcommand\thechapter{\Asbuk{chapter}} % Чтобы приложения русскими буквами нумеровались
 
-\include{Dissertation/appendix}        % Приложения
+%\include{Dissertation/appendix}        % Приложения
 
 \end{document}
