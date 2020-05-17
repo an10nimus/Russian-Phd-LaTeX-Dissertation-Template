@@ -282,7 +282,7 @@ g_1 = \gamma g_2.
 \end{subequations}
 Здесь и далее подразумевается, что во всех выражениях могут стоять одновременно либо только ``верхние'', либо только ``нижние'' знаки.
 После несложных алгебраических преобразований удаётся выразить следующие конструкции из коэффициентов, удобные для дальнейшей подстановки:
-\begin{subequations}
+\begin{subequations}\label{eq:ch5_parabolic_coeff_system}
 	\begin{empheq}[left = \empheqlbrace]{align}
 		&b = \frac{-L}{2}\left( \frac{\pm \gamma}{\frac{\mu_L}{\mu_0} \pm \gamma} + \frac{1}{1 \pm \gamma}\right),\label{eq:ch5_parabolic_coeff_system_1}\\
 		&\frac{2a}{c} = \frac{L}{2}\left( \frac{1}{1 \pm \gamma} - \frac{\pm \gamma}{\frac{\mu_L}{\mu_0} \pm \gamma} \right),\label{eq:ch5_parabolic_coeff_system_2}\\
@@ -290,13 +290,50 @@ g_1 = \gamma g_2.
 	\end{empheq}
 \end{subequations}
 Граничные условия~\eqref{eq:ch5_parabolic_system_6} и~\eqref{eq:ch5_parabolic_system_7} после подстановки в них выражений для коэффициентов~\eqref{eq:ch5_parabolic_coeff_system_1} -- \eqref{eq:ch5_parabolic_coeff_system_3} принимают следующий вид:
-\begin{subequations}
+\begin{subequations}\label{eq:ch5_some_system}
 	\begin{empheq}[left = \empheqlbrace]{align}
-		&\mu_0\left( g_1 + \frac{2(1 \pm \gamma)}{L} \right) \delta y(0) \geq 0,\\
-		&\mu_L \left( g_2 + \frac{2(1 \pm \gamma^{-1})}{L} \right) \delta y(L) \geq 0.
+		&\mu_0\left( g_1 + \frac{2(1 \pm \gamma)}{L} \right) \delta y(0) \geq 0,\label{eq:ch5_some_system_a}\\
+		&\mu_L \left( g_2 + \frac{2(1 \pm \gamma^{-1})}{L} \right) \delta y(L) \geq 0.\label{eq:ch5_some_system_b}
 	\end{empheq}
 \end{subequations}
 \todo{АО: надо придумать, как здесь заменить $\delta y(0,\, L)$ на единицу в некоторой степени.}
+Для того, чтобы анализа полученные неравенства, необходимо выбрать знаки $\ve_a$ и $U$.
+Произведём расчёт для случая $\ve_a > 0$, $U > 0$.
+Заметим, что в этом случае выполнены следующие неравества:
+\begin{subequations}
+	\begin{align}
+		&\mu_{0,L} > 0,\label{eq:ch5_conseq_from_positive_ea_U_1}\\
+		&0 < \gamma \leq 1,\label{eq:ch5_conseq_from_positive_ea_U_2}\\
+		&1 \leq \gamma^{-1} < \infty.\label{eq:ch5_conseq_from_positive_ea_U_3}
+	\end{align}
+\end{subequations}
+Учитывая требование~\eqref{eq:ch5_conseq_from_positive_ea_U_2}, неравенство~\eqref{eq:ch5_some_system_a} можно свести к требованию $\delta y(0) > 0$, что соответствует $\mu_0 = \ve_\bot / \ve_a$.
+Предположим, что знак при $\gamma$ -- ``верхний''.
+Тогда неравенство~\eqref{eq:ch5_some_system_b} принимает вид
+\begin{equation}
+	\left( g_2 + \frac{2(1 + \gamma^{-1})}{L} \right) \delta y(L) \geq 0.
+\end{equation}
+Выражение в скобках может принимать только положительные значения ($g_i > 0$, так как $\ve_a > 0$).
+Таким образом, приходим к требованию $\delta y(L) > 0$, что соответствует $\mu_L = \mu_0 = \ve_\bot / \ve_a$.
+Мы получили, что $y(0) = y(L)$, а значит, вершина параболы находится в точке $z = L/2$, а значит, нужно проверить, находится ли ордината вершины на допустимом отрезке.
+Выражение для ординаты параболы:
+\begin{equation}
+y(z)\bigg|_{z = -b} = \frac{-a^2}{c},
+\end{equation}
+на него наложено следующее ограничение:
+\begin{equation}\label{eq:ch5_case1_ineq_system}
+\frac{\ve_\bot}{\ve_a} \leq \frac{-a^2}{c} \leq \frac{\ve_\|}{\ve_a}.
+\end{equation}
+Воспользуемся полученными ранее формулами~\eqref{eq:ch5_parabolic_coeff_system_1}, чтобы выразить $-a^2/c$, и после несложных преобразований получим
+\begin{equation}
+1 \leq \frac{-(1 - \gamma)^2}{4\gamma}\leq \frac{\ve_\|}{\ve_\bot}.
+\end{equation}
+Видно, что это условие не выполняется, а значит, решений в случае выбранного при $\gamma$ знака при $\ve_a > 0$ и $U > 0$ нет.
+
+Рассмотрим теперь ``нижний'' знак при $\gamma$.
+
+
+\paragraph{Решения с участком насыщения}
 
 \todo{Далее -- под переделку, выше -- переписанное.}
 
