@@ -317,20 +317,51 @@ g_1 = \gamma g_2.
 Таким образом, приходим к требованию $\delta y(L) > 0$, что соответствует $\mu_L = \mu_0 = \ve_\bot / \ve_a$.
 Мы получили, что $y(0) = y(L)$, а значит, вершина параболы находится в точке $z = L/2$, а значит, нужно проверить, находится ли ордината вершины на допустимом отрезке.
 Выражение для ординаты параболы:
-\begin{equation}
-y(z)\bigg|_{z = -b} = \frac{-a^2}{c},
+\begin{equation}\label{eq:ch5_ordinate_of_vertex_symmetric}
+	y(z)\bigg|_{z = -b} = \frac{-a^2}{c},
 \end{equation}
 на него наложено следующее ограничение:
 \begin{equation}\label{eq:ch5_case1_ineq_system}
-\frac{\ve_\bot}{\ve_a} \leq \frac{-a^2}{c} \leq \frac{\ve_\|}{\ve_a}.
+	\frac{\ve_\bot}{\ve_a} \leq \frac{-a^2}{c} \leq \frac{\ve_\|}{\ve_a}.
 \end{equation}
 Воспользуемся полученными ранее формулами~\eqref{eq:ch5_parabolic_coeff_system_1}, чтобы выразить $-a^2/c$, и после несложных преобразований получим
-\begin{equation}
-1 \leq \frac{-(1 - \gamma)^2}{4\gamma}\leq \frac{\ve_\|}{\ve_\bot}.
+\begin{equation}\label{eq:ch5_case_low_sign_ineq}
+	1 \leq \frac{-(1 - \gamma)^2}{4\gamma}\leq \frac{\ve_\|}{\ve_\bot}.
 \end{equation}
 Видно, что это условие не выполняется, а значит, решений в случае выбранного при $\gamma$ знака при $\ve_a > 0$ и $U > 0$ нет.
 
 Рассмотрим теперь ``нижний'' знак при $\gamma$.
+В этом случае неравенство~\eqref{eq:ch5_some_system_b} принимает вид
+\begin{equation}
+	\left( g_2 + \frac{2(1 - \gamma^{-1})}{L} \right) \delta y(L) \geq 0.
+\end{equation}
+Знак выражения в скобках определяет, какого знака должна быть вариация $\delta y(L)$.
+Заметим, что с ростом $U$ значение $\gamma^{-1}$ также монотонно растёт.
+Следовательно, существует некоторое значение напряжения $U = \tilde{U}$ такое, что при $U < \tilde{U}$, $\delta y(L) > 0$, а при $U > \tilde{U}$, $\delta y(L) < 0$.
+Найти напряжение $\tilde{U}$ можно, приравнивая значение выражения в скобках в формуле~\eqref{eq:ch5_case_low_sign_ineq} к нулю.
+После несложных преобразований получим:
+\begin{equation}
+	\tilde{U} = \frac{8\pi \bar{e}}{\ve_a} \ln \left( 1 + \frac{\ve_a W_2 L}{16\pi \bar{e}^2} \right).
+\end{equation}
+Рассмотрим случай  $U < \tilde{U}$.
+Как сказано выше, это условие приводит к тому, что $\mu_L = \ve_\bot / \ve_a$.
+Проверим, выполняется ли условие на ординату вершину параболы, которая при $\mu_0 = \mu_L$ имеет абсциссу $z = -b$.
+Подставим в~\eqref{eq:ch5_ordinate_of_vertex_symmetric} выражения для комбинации коэффициентов из~\eqref{eq:ch5_parabolic_coeff_system}:
+\begin{equation}
+	y(z)\bigg|_{z = -b} = -\left( \frac{2a}{c} \right)^2 \cdot \frac{c}{4} = \frac{\mu_0 \left( \frac{\mu_L}{\mu_0} - \gamma^2 \right)^2}{4\gamma\left(1-\gamma\right)\left( \frac{\mu_L}{\mu_0} - \gamma \right)}.
+\end{equation}
+Подставляя полученные выше значения $\mu_0 = \mu_L = \ve_\bot / \ve_a$, запишем условие на вершину параболы:
+\begin{equation}\label{eq:ch5_toomanynames_001}
+	1 \leq \frac{(1+\gamma)^2}{4\gamma} \leq \frac{\ve_\|}{\ve_\bot}.
+\end{equation}
+Видно, что первое неравенство в~\eqref{eq:ch5_toomanynames_001} выполнено для всех $\gamma\in(0,\, 1]$, а вот второе является содержательным.
+Исследуем неравенство
+\begin{equation}
+(1+\gamma)^2 \leq \frac{4\gamma\ve_\|}{\ve_\bot}.
+\end{equation}
+Графики функций $f_1(\gamma) = (a+\gamma)^2$ и $f_2(\gamma) = 4\gamma\ve_\|/\ve_\bot$ представлены на Рис.~\ref{fff}
+
+
 
 
 \paragraph{Решения с участком насыщения}
