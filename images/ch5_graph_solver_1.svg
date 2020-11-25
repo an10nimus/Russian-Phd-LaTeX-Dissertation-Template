@@ -101,27 +101,32 @@
     </rdf:RDF>
   </metadata>
   <g
+     transform="translate(-11.457634,-136.19133)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Слой 1"
      transform="translate(-11.457634,-36.843949)">
     <path
+       inkscape:connector-curvature="0"
        id="path16"
        d="M 27.970236,228.85369 V 38.073322"
        style="fill:none;stroke:#000000;stroke-width:0.26541254px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4805)"
        inkscape:connector-curvature="0" />
     <path
+       inkscape:connector-curvature="0"
        id="path18"
        d="M 11.457634,210.91071 H 190.5282"
        style="fill:none;stroke:#000000;stroke-width:0.26670873px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        inkscape:connector-curvature="0" />
     <path
+       inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
        id="path20"
        d="M 29.038251,210.10992 192.41533,38.393596"
        style="fill:none;stroke:#000000;stroke-width:0.2616528px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        inkscape:connector-curvature="0" />
     <path
+       inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
        id="path22"
        d="M 27.968195,165.74161 C 113.47326,166.30754 150.27904,118.12116 183.44048,38.923014"
